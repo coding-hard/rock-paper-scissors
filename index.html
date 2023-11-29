@@ -1,0 +1,36 @@
+<script>
+    function getComputerChoice() {
+        let randomNumber = Math.floor(Math.random() * 100);
+
+        if (randomNumber <= 33) {
+            return "Rock"
+        } else if (randomNumber <= 66) {
+            return "Paper"
+        } else if (randomNumber <= 99) {
+            return "Scissors"
+        } else {
+            getComputerChoice()
+        }
+    };
+    
+    function playRound(playerSelection, computerSelection) {
+
+        let optionOne = playerSelection.toLowerCase();
+        let optionTwo = computerSelection.toLowerCase();
+
+        if (optionOne === "rock" && optionTwo === "paper"
+            || optionOne === "scissors" && optionTwo === "rock"
+            || optionOne === "paper" && optionTwo === "scissors") {
+            return "You Lose!"
+        } else if (optionOne === optionTwo) {
+            return "TIE! Play once again!"
+        } else {
+            return "You Win!"
+        }
+
+    }
+
+    const playerSelection = "paper";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+</script>
