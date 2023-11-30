@@ -63,6 +63,13 @@
        }
     }
 
-    game();
+    let openGame = prompt('Do you want to play a game? Answer YES or NO').toLowerCase();
+
+    if (openGame === "yes") {
+        alert("Cool! Please enter one of possible moves in the game: Rock, Paper or Scissors")
+        game();
+    } else {
+        alert("Restart the page when change your mind! ;)")
+    }
 
 </script>
