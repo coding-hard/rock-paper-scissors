@@ -1,75 +1,32 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
 
-    let playerScore = 0;
-    let computerScore = 0;
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissorcs game</title>
 
-    function getComputerChoice() {
-        let randomNumber = Math.floor(Math.random() * 100);
+    <link rel="stylesheet" href="styles.css" />
+</head>
 
-        if (randomNumber <= 33) {
-            return "rock"
-        } else if (randomNumber <= 66) {
-            return "paper"
-        } else if (randomNumber <= 99) {
-            return "scissors"
-        } else {
-            getComputerChoice()
-        }
-    };
+<body>
+    <div id="content">
+        <div id="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
 
 
-    function game() {
+        <div id="results"></div>
+        <div id="playersScore">Your score: 0</div>
+        <div id="computersScore">Computer's score: 0</div>
+    </div>
 
-        function playRound() {
+ 
 
-            let playerSelection = prompt("Whats your move?").toLowerCase();
-            let computerSelection = getComputerChoice();
+    <script src="script.js"></script>
+</body>
 
-            if (playerSelection === computerSelection) {
-                alert("TIE! Play once again!")
-                console.log("TIE! Play once again!")
-            } else if (playerSelection === "rock" && computerSelection === "paper"
-                || playerSelection === "scissors" && computerSelection === "rock"
-                || playerSelection === "paper" && computerSelection === "scissors") {
-                alert('You Loose!')
-                console.log('You Loose the round!')
-                computerScore += 1;
-            } else if (playerSelection === "paper" && computerSelection === "rock"
-                || playerSelection === "rock" && computerSelection === "scissors"
-                || playerSelection === "scissors" && computerSelection === "paper") {
-                alert("You Win!")
-                console.log("You Win the round!")
-                playerScore += 1;
-            } else if (!playerSelection
-                || playerSelection !== "rock"
-                || playerSelection !== "paper"
-                || playerSelection !== "scissors") {
-                alert("Restart the game (refresh the page), include correct choices: Rock, Paper or Scissors")
-            }
-        }
-
-        let round = 0;
-        while (round < 5) {
-            round++;
-            playRound();
-        }
-
-       if (playerScore > computerScore) {
-        alert("YOU WIN THE GAME! TIME TO OPEN CHAMPAGNE")
-       } else if (playerScore === computerScore) {
-        alert("IT IS A TIE!")
-       } else if (playerScore < computerScore) {
-        alert("YOU LOST THE GAME! DONT WORRY AND TRY AGAIN")
-       }
-    }
-
-    let openGame = prompt('Do you want to play a game? Answer YES or NO').toLowerCase();
-
-    if (openGame === "yes") {
-        alert("Cool! Please enter one of possible moves in the game: Rock, Paper or Scissors")
-        game();
-    } else {
-        alert("Restart the page when change your mind! ;)")
-    }
-
-</script>
+</html>
